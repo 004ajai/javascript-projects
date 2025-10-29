@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+
+    <style>
+        body{
+            text-align: center;
+            background: linear-gradient(to top,#d17979 0% , #b93232  100% ) fixed;
+            font-size: 40px;
+        }
+
+        button{
+            padding: 10px 30px;
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+        button:hover{
+            background-color: lightblue;
+            box-shadow: -5px -5px 30px black;
+
+        }
+
+        h1{
+            color: rgb(54, 26, 156);
+        }
+
+        #count{
+            color: rgb(8, 75, 75);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome To Counter App</h1>
+    <h1 id="count">0</h1>
+    <button id="inc">+</button>
+    <button id="reset">reset</button>
+    <button id="dec">-</button>
+    
+
+    <script>
+        let count=0;
+        const display=document.getElementById("count");
+        document.getElementById("inc").onclick=function(){
+            count++;
+            display.textContent=count;
+        };
+
+        document.getElementById("dec").onclick=function(){
+            count--;
+            display.textContent=count;
+        };
+
+        document.getElementById("reset").onclick=function(){
+            count=0;
+            display.textContent=count;
+        }
+        
+    </script>
+</body>
+</html>

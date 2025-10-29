@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+
+    <style>
+
+        body{
+            text-align: center;
+            background: linear-gradient(to bottom , #47ca26 0% , #104b1a 100% )fixed;
+        }
+
+        h1{
+            font-size: 50px;
+            text-shadow: 5px 5px 7px #dfd4d4;
+        }
+
+        .box{
+            background-color: rgb(49, 46, 46);
+            width: 320px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px white;
+
+        }
+
+        input{
+            padding: 5px;
+            width: 70%;
+            border-radius: 10px;
+            outline: none;
+            border: 2px solid #1424b3;
+        }
+
+        button{
+            padding: 5px;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+           
+        }
+
+        button:hover{
+            background-color: rgb(27, 136, 163);
+            box-shadow: -5px -5px 30px black;
+
+        }
+
+        ul{
+           list-style-type: none;
+           padding: 0; 
+        }
+
+        li{
+            background-color: aqua;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li span {
+            flex: 1;
+            text-align: left;
+        }
+
+        li.completed span{
+            text-decoration: line-through;
+            color: bisque;
+        }
+
+        doneBtn{
+            background-color: brown;
+            color: azure;
+        }
+
+        doneBtn:hover{
+            background-color: rgb(27, 136, 163);
+            box-shadow: -5px -5px 30px rgb(44, 40, 40);
+
+        }
+
+        deleteBtn{
+            background-color: rgb(54, 30, 30);
+            color: antiquewhite;
+        }
+
+        deleteBtn:hover{
+            background-color: rgb(27, 136, 163);
+            box-shadow: -5px -5px 30px black;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h1>To-Do App</h1>
+
+    <div class="box">
+
+    <input type="text" id="task" placeholder="Enter a Task">
+
+    <button onclick="addTask()">Add Task</button>
+    <ul id="task-list"></ul>
+    </div>
+
+    <script>
+        function addTask(){
+            const taskInput=document.getElementById("task");
+            const taskText=taskInput.value.trim();
+            if (taskText===""){
+                alert("please enter a task!");
+                return;
+            }
+
+            const li=document.createElement("li");
+            const span=document.createElement("span");
+            span.textContent=taskText;
+
+            const doneBtn=document.createElement("button");
+            doneBtn.textContent="Done";
+            doneBtn.className="doneBtn";
+
+            doneBtn.onclick=function(){
+                li.classList.toggle("completed");
+            };
+
+            const deleteBtn=document.createElement("button");
+            deleteBtn.textContent="Delete";
+            deleteBtn.className="deleteBtn";
+
+            deleteBtn.onclick=function(){
+                li.remove();
+            };
+
+            li.appendChild(span);
+            li.appendChild(doneBtn);
+            li.appendChild(deleteBtn);
+
+            document.getElementById("task-list").appendChild(li);
+            taskInput.value="";
+
+        }
+    </script>
+</body>
+</html>

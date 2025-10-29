@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ATM Machine</title>
+
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    
+      h1 {
+        text-align: center;
+        color: #007bff;
+      }
+    
+      .atm-box {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+    
+      .start-button {
+        display: block;
+        margin: 20px auto 0;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    
+      .start-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+
+</head>
+<body>
+  <script src="atm.js"></script>
+
+  <div class="atm-box">
+    <h1>🏧ATM</h1>
+    
+    <button class="start-button" onclick="startATM()">Start ATM</button>
+    <div class="balance">
+
+    </div>
+    <input type="text">
+    <button onclick="Deposit()">Deposit</button>
+    <button onclick="Withdrawl()">Withdrawl</button>
+    <button onclick="Exit()">Exit</button>
+    <button onclick="Check()">Check</button>
+   
+  </div>
+    
+</body>
+</html>

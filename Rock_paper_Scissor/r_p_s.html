@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissor</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"> -->
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+         body{
+            text-align: center;
+            background: linear-gradient(to top,#db23c3 0% , #80267b  100% ) fixed;
+            font-size: 30px;
+            font-family: "Dancing Script", cursive;
+            font-weight: 700;
+        }
+
+        /* syntax:
+            => transition: prperty duration timing-function delay;
+            => transform: function(value);
+         */
+
+        .choices img{
+            width: 150px;
+            margin: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgb(138, 5, 5);
+        }
+
+        .choices img:hover{
+            transform:scale(0.75) rotate(10deg);
+            box-shadow: 0 5px 15px rgb(16, 170, 24);
+            /* border: 2px solid transparent; */
+
+        }
+
+        h1{
+            text-shadow: 5px 5px 5px rgba(12, 11, 11, 0.267);
+            
+        }
+
+        .scoreboard,.result{
+            font-size: 25px;
+        }
+
+        .scoreboard span{
+            color: rgb(198, 198, 206);
+        }
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <h1>Rock-Paper-Scissor</h1>
+
+    <div class="choices">
+
+    <img src="images (5).jpeg" alt="Rock" onclick="plays('Rock')">
+    <img src="images (4.1).jpeg" alt="Paper" onclick="plays('Paper')">
+    <img src="images (6).jpeg" alt="Scissor" onclick="plays('Scissor')">
+
+    </div>
+
+    <div class="scoreboard">
+
+    <p>Rounds : <span id="round">0</span></p>
+    <p>player : <span id="player_score">0</span> || computer : <span id="computer_score">0</span></p>
+
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+
+        let player_score=0;
+        let computer_score=0;
+        let rounds=0;
+
+        function plays(playerChoice){
+            const choices=["Rock" , "Paper" , "Scissor"];
+            const computerChoice=choices[Math.floor(Math.random()*3)];
+            rounds++;
+
+            let resultMessage="";
+
+            if (playerChoice===computerChoice){
+                resultMessage="😎It's draw";
+            } else if(
+                (playerChoice==="Rock" && computerChoice==="Scissor") ||
+                (playerChoice === "Scissor" && computerChoice === "Paper") ||
+                (playerChoice === "Paper" && computerChoice === "Rock")
+            ){
+                player_score++;
+                resultMessage=`You Win🎉! ${playerChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}`
+
+            } else {
+                computer_score++;
+                resultMessage = `You Lose👎! ${computerChoice.toUpperCase()} beats ${playerChoice.toUpperCase()}`
+            }
+
+            document.getElementById("round").textContent=rounds;
+            document.getElementById("player_score").textContent = player_score;
+            document.getElementById("computer_score").textContent = computer_score;
+            document.getElementById("result").textContent = resultMessage;
+    }
+
+    </script>
+
+</body>
+</html>
